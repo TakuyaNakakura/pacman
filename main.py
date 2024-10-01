@@ -18,22 +18,22 @@ def main() -> None:
     # args，run_date，git_revisionなどを追加した辞書を取得
 
     # 結果出力用ファイルの作成
-    result_dir = f'result/{params.run_date}'  # 結果出力ディレクトリ
+    result_dir = f"result/{params.run_date}"  # 結果出力ディレクトリ
     os.mkdir(result_dir)  # 実行日時を名前とするディレクトリを作成
-    dump_params(params, f'{result_dir}')  # パラメータを出力
+    dump_params(params, f"{result_dir}")  # パラメータを出力
 
     # ログ設定
     logger = logging.getLogger(__name__)
     set_logging(result_dir)  # ログを標準出力とファイルに出力するよう設定
 
     # 使用例
-    logger.info('parameters: ')
+    logger.info("parameters: ")
     logger.info(params)
     logger.info(params.param1)  # params変数は各パラメータにドットアクセスが可能．
-    logger.info(params.args['arg1'])  # コマンドライン引数はargs['']でアクセス．
+    logger.info(params.args["arg1"])  # コマンドライン引数はargs['']でアクセス．
 
     # do something...
-    logger.info('Process terminated successfully. ')
+    logger.info("Process terminated successfully. ")
 
 
 if __name__ == "__main__":
