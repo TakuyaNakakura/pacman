@@ -23,16 +23,23 @@ class Field:
     def __init__(
         self,
         players: list[Player],
-        f_size: int = 10,
+        field_size: int = 10,
     ) -> None:
         """Fieldクラスのコンストラクタ
 
         Args:
             players (list[Player]): プレイヤーのリスト
             f_size (int): フィールドのサイズ
-        """
-        pass
 
+        """
+        self.players = players
+        self.field_size = field_size
+        self.field = [
+            [" " for _ in range(field_size)] for _ in range(field_size)
+            ]
+        self.update_field()
+
+    # Fieldを更新する関数
     def update_field(self) -> list[list[str]]:
         """Fieldを更新する関数
         プレイヤーの位置を参照してFieldを更新する関数
@@ -46,6 +53,7 @@ class Field:
 
         pass
 
+    # Fieldを表示する関数
     def display_field(self) -> None:
         """Fieldを表示する関数
         Fieldを表示する関数
@@ -54,3 +62,8 @@ class Field:
 
         """
         pass
+
+    if __name__ == "__main__":
+        import doctest
+
+        doctest.testmod()
