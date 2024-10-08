@@ -1,7 +1,7 @@
 import main
 import field
 
-class item():
+class Item():
     """block,player,enemy,foodの親クラス
 
     Attributes:
@@ -42,11 +42,59 @@ class item():
         """
         pass
 
-    def next_position(self):
+    def get_next_pos(self,x,y):
         """
         user_inputから次の移動を入手し、移動先の座標取得
         fieldへ次の座標を送信。壁および障害物に衝突しないかTrue or Falseで取得
+
+        Returns:
+            tuple[int, int]: 現在の座標
+
+        Examples:
+            >>> item = Item(2, 3)
+            >>> item.get_next_pos()
+            (2, 3)
         """
         pass
+
+    def get_pos(self):
+        """
+        次の時刻の座標を取得するメソッド
+        
+
+        Returns:
+            tuple[int, int]: 現在の座標
+
+        Examples:
+            >>> item = Item(2, 3)
+            >>> item.get_pos()
+            (2, 3)
+        """
+        pass
+
+    def update_pos(self):
+        """
+        座標を更新するメソッド
+        引数に次に移動したい座標をとり,その座標にプレイヤーの現在座標を更新する.
+
+        Args:
+            stuck (bool): そのターンに動けない場合にTrueを渡す (default: False)
+
+        Returns:
+            None
+
+        Examples:
+            >>> item = Item(2, 3)
+            >>> item.next_x = 3
+            >>> item.next_y = 4
+            >>> item.get_pos()
+            (2, 3)
+            >>> item.update_pos()
+            >>> item.get_pos()
+            (3, 4)
+
+        """
+    
+
 
     
