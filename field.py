@@ -1,20 +1,34 @@
-    """フィールドのクラスを定義するモジュール
+"""フィールドのクラスを定義するモジュール
 
-    フィールドのクラスを定義する.
+フィールドのクラスを定義する.
 
+"""
+
+from item import Item
+from player import Player
+
+
+class Field:
+    """Fieldクラス
+    Fieldクラスは、ゲームのフィールドを表すクラスです。
+    プレイヤーの位置を更新し、Fieldを表示する機能を持ちます。
+
+    Attributes:
+        players (list[Player]): プレイヤーのリスト
+        field (list[list[str]]): フィールドの情報
+        f_size (int): フィールドのサイズ
     """
 
-    class Field:
-        """フィールドクラス
+    # Fieldクラスを初期化する関数
+    def __init__(
+        self,
+        players: list[Player],
+        f_size: int = 10,
+    ) -> None:
+        """Fieldクラスのコンストラクタ
 
-        フィールドの初期設定とフィールドの状態を管理するクラスです.
-        プレイヤー、敵、アイテムが配置する.
-        
-
-
-        Attributes:
-            width (int): フィールドの幅
-            height (int): フィールドの高さ
-            cells (list): フィールドのセルのリスト
-
+        Args:
+            players (list[Player]): プレイヤーのリスト
+            f_size (int): フィールドのサイズ
         """
+        pass
