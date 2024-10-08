@@ -32,3 +32,14 @@ class Field:
             f_size (int): フィールドのサイズ
         """
         pass
+
+    def update_field(self) -> list[list[str]]:
+        """Fieldを更新する関数
+        プレイヤーの位置を参照してFieldを更新する関数
+
+        Returns:
+            list[list[str]]: 更新されたField
+        
+        """
+        
+        pass
