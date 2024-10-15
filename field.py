@@ -46,10 +46,16 @@ class Field:
             list[list[str]]: 更新されたField
 
         Examples:
-
+            >>> p = Player(0, 0, "P")
+            >>> field = Field([p])
+            >>> field.update_field()[0]
+            ['P', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
         """
 
-        pass
+        for player in self.players:
+            self.field[player.now_y][player.now_x] = player.icon
+        return self.field
+        # pass
 
     # Fieldを表示する関数
     def display_field(self) -> None:
@@ -57,9 +63,15 @@ class Field:
         Fieldを表示する関数
 
         Examples:
-
+            >>> p = Player(0, 0, "P")
+            >>> field = Field([p])
+            >>> field.display_field()
+            P
         """
-        pass
+
+        for row in self.field:
+            print(" ".join(row))
+        # pass
 
     if __name__ == "__main__":
         import doctest
