@@ -1,7 +1,4 @@
-import main
-import field
-
-class item():
+class Item():
     """block,player,enemy,foodの親クラス
 
     Attributes:
@@ -12,8 +9,8 @@ class item():
        status(bool) : アイテムの状態（Trueなら存在する、Falseなら存在しない消滅した）
        icon(str) : 表示されるアイテムのアイコン
     """
-     
-    def __init__(self,x,y) -> None:
+
+    def __init__(self, x: int, y: int) -> None:
         """
         Itemクラスのコンストラクタ
         引数にx座標とy座標を受け取り、それぞれの座標を初期化する
@@ -48,5 +45,3 @@ class item():
         fieldへ次の座標を送信。壁および障害物に衝突しないかTrue or Falseで取得
         """
         pass
-
-    
