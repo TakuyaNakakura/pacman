@@ -1,7 +1,7 @@
-# import main
-# import field
+import main
+import field
 
-class Item():
+class item():
     """block,player,enemy,foodの親クラス
 
     Attributes:
@@ -12,8 +12,8 @@ class Item():
        status(bool) : アイテムの状態（Trueなら存在する、Falseなら存在しない消滅した）
        icon(str) : 表示されるアイテムのアイコン
     """
-     
-    def __init__(self,x,y) -> None:
+
+    def __init__(self, x: int, y: int) -> None:
         """
         Itemクラスのコンストラクタ
         引数にx座標とy座標を受け取り、それぞれの座標を初期化する
@@ -71,30 +71,5 @@ class Item():
             (2, 3)
         """
         pass
-
-    def update_pos(self):
-        """
-        座標を更新するメソッド
-        引数に次に移動したい座標をとり,その座標にプレイヤーの現在座標を更新する.
-
-        Args:
-            stuck (bool): そのターンに動けない場合にTrueを渡す (default: False)
-
-        Returns:
-            None
-
-        Examples:
-            >>> item = Item(2, 3)
-            >>> item.next_x = 3
-            >>> item.next_y = 4
-            >>> item.get_pos()
-            (2, 3)
-            >>> item.update_pos()
-            >>> item.get_pos()
-            (3, 4)
-
-        """
-    
-
 
     
