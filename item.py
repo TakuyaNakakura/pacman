@@ -1,5 +1,5 @@
-import main
-import field
+# import main
+# import field
 
 class Item():
     """block,player,enemy,foodの親クラス
