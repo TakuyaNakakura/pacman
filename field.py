@@ -34,7 +34,10 @@ class Field:
         """
         self.players = players
         self.field_size = field_size
-        self.field = [[" " for _ in range(field_size)] for _ in range(field_size)]
+        self.field = [
+            [" " for _ in range(field_size)]
+            for _ in range(field_size)
+        ]
         self.update_field()
 
     # Fieldを更新する関数
