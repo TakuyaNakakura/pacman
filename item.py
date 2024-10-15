@@ -1,5 +1,4 @@
-# fuji
-class Item:
+class Item():
     """block,player,enemy,foodの親クラス
 
     Attributes:
@@ -44,10 +43,10 @@ class Item:
         """
         user_inputから次の移動を入手し、移動先の座標取得
         fieldへ次の座標を送信。壁および障害物に衝突しないかTrue or Falseで取得
-
+        
         return:
             tuple[int, int]
-
+        
         exsample:
         >>>item.get_next_pos()
         """
@@ -56,5 +55,4 @@ class Item:
 
 if __name__ == "__main__":
     import doctest
-
     doctest.testmod()
