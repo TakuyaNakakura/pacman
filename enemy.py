@@ -1,6 +1,7 @@
 from item import Item
 import random
 
+
 class Enemy(Item):
     """
     itemクラスを継承する
@@ -17,13 +18,22 @@ class Enemy(Item):
     """
     def __init__(self, x, y):
         super().__init__(x, y)
-    
-    def get_next_pos(self, x, y) -> tuple[int,int]:
+
+    def get_next_pos(self, x, y) -> tuple[int, int]:
         """
         ランダム関数にて移動方向を入力、次の座標を返すメゾット
         ２値をランダムに出力し、移動方向を返す。
 
         return:
-            移動方向 tuple[int,int] 
+            移動方向 tuple[int, int]
 
         """
+        position = {(0,0),(1,0),(0,1)}
+        dir = random.choice(position)
+        self.next_x = self.now_x + dir[0]
+        self.next_y = self.now_y + dir[1]
+        return (self.next_x, self.next_y)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
