@@ -3,10 +3,10 @@
 """
 パックマン本体の設定
 """
-from item import item
-from user_input import input
+from item import Item
+from user_input import UserInput
 
-class Player(item):
+class Player(Item):
     def __init__(self, position):
         pass
 
