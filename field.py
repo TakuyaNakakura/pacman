@@ -4,7 +4,7 @@
 
 """
 
-from item import Item
+# from item import Item
 from player import Player
 
 
@@ -16,7 +16,7 @@ class Field:
     Attributes:
         players (list[Player]): プレイヤーのリスト
         field (list[list[str]]): フィールドの情報
-        f_size (int): フィールドのサイズ
+        field_size (int): フィールドのサイズ
     """
 
     # Fieldクラスを初期化する関数
@@ -49,7 +49,7 @@ class Field:
             list[list[str]]: 更新されたField
 
         Examples:
-            >>> p = Player(0, 0, "P")
+            >>> p = [Player(0, 0)]
             >>> field = Field([p])
             >>> field.update_field()[0]
             ['P', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
@@ -66,7 +66,7 @@ class Field:
         Fieldを表示する関数
 
         Examples:
-            >>> p = Player(0, 0, "P")
+            >>> p = [Player(0, 0)]
             >>> field = Field([p])
             >>> field.display_field()
             P
