@@ -40,7 +40,7 @@ class Item:
         """
         pass
 
-<<<<<<< HEAD
+
     def get_next_pos(self) -> tuple[int, int]:
         """
         user_inputから次の移動を入手し、移動先の座標取得
@@ -94,11 +94,6 @@ class Item:
         """
         pass
 
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-=======
     def get_next_pos(self,x,y):
         """
         user_inputから次の移動を入手し、移動先の座標取得
@@ -129,5 +124,7 @@ if __name__ == "__main__":
         """
         pass
 
-    
->>>>>>> origin
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
