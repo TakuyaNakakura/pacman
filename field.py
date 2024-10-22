@@ -69,7 +69,6 @@ class Field:
             >>> p = [Player(0, 0)]
             >>> field = Field([p])
             >>> field.display_field()
-            P
         """
 
         for row in self.field:
