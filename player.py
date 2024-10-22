@@ -23,7 +23,8 @@ class Player(Item):
     """
 
     def __init__(self, x, y) -> None:
-        pass
+        super().__init__(x, y)
+        self.icon = '🐯'
 
     def get_next_pos(self, dir: tuple[int, int]) -> tuple[int, int]:
         """
@@ -48,7 +49,9 @@ class Player(Item):
             (2, 4)
 
         """
-        pass
+        self.next_x = self.now_x + dir[0]
+        self.next_y = self.now_y + dir[1]
+        return (self.next_x, self.next_y)
 
 
 if __name__ == "__main__":
