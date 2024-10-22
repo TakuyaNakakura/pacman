@@ -1,5 +1,4 @@
-# fuji
-class Item:
+class Item():
     """block,player,enemy,foodの親クラス
 
     Attributes:
@@ -40,15 +39,14 @@ class Item:
         """
         pass
 
-
     def get_next_pos(self) -> tuple[int, int]:
         """
         user_inputから次の移動を入手し、移動先の座標取得
         fieldへ次の座標を送信。壁および障害物に衝突しないかTrue or Falseで取得
-        
+
         Returns:
             tuple[int, int]
-        
+
         Exsamples:
             >>> item = Item(2,3)
             >>> item.get_next_pos()
@@ -91,36 +89,6 @@ class Item:
             >>> item.get_pos()
             (3, 4)
 
-        """
-        pass
-
-    def get_next_pos(self,x,y):
-        """
-        user_inputから次の移動を入手し、移動先の座標取得
-        fieldへ次の座標を送信。壁および障害物に衝突しないかTrue or Falseで取得
-
-        Returns:
-            tuple[int, int]: 現在の座標
-
-        Examples:
-            >>> item = Item(2, 3)
-            >>> item.get_next_pos()
-            (2, 3)
-        """
-        pass
-
-    def get_pos(self):
-        """
-        次の時刻の座標を取得するメソッド
-        
-
-        Returns:
-            tuple[int, int]: 現在の座標
-
-        Examples:
-            >>> item = Item(2, 3)
-            >>> item.get_pos()
-            (2, 3)
         """
         pass
 
