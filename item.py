@@ -71,7 +71,7 @@ class Item():
             >>> item.get_pos()
             (2, 3)
         """
-        return (self.next_x, self.next_y)
+        return (self.now_x, self.now_y)
 
     def update_pos(self, stuck: bool = False) -> None:
         """
@@ -95,6 +95,9 @@ class Item():
             (3, 4)
 
         """
+        if stuck:
+            self.next_x = self.now_x
+            self.next_y = self.now_y
         self.now_x = self.next_x
         self.now_y = self.next_y
 
