@@ -1,6 +1,3 @@
-import main
-import field
-
 class item():
     """block,player,enemy,foodの親クラス
 
