@@ -28,11 +28,12 @@ class Enemy(Item):
             移動方向 tuple[int, int]
 
         """
-        position = {(0,0),(1,0),(0,1)}
+        position = {(0, 0), (1, 0), (0, 1)}
         dir = random.choice(position)
         self.next_x = self.now_x + dir[0]
         self.next_y = self.now_y + dir[1]
         return (self.next_x, self.next_y)
+
 
 if __name__ == "__main__":
     import doctest
