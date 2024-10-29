@@ -49,11 +49,16 @@ class Field:
             list[list[str]]: 更新されたField
 
         Examples:
-            >>> p = [Player(0, 0)]
+            >>> p = Player(0, 0)
             >>> field = Field([p])
             >>> field.update_field()[0]
-            ['P', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+            ['🐯', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
         """
+
+        # fieldを一旦すべて空白にする
+        for i in range(len(self.field)):
+            for j in range(len(self.field[i])):
+                self.field[i][j] = " "
 
         for player in self.players:
             self.field[player.now_y][player.now_x] = player.icon
@@ -66,13 +71,28 @@ class Field:
         Fieldを表示する関数
 
         Examples:
-            >>> p = [Player(0, 0)]
+            >>> p = Player(0, 0)
             >>> field = Field([p])
             >>> field.display_field()
+            🐯         
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
+            <BLANKLINE>
         """
 
+        # フィールド内の最大幅を取得
+        max_width = max(len(row) for row in self.field)
+
         for row in self.field:
-            print(" ".join(row))
+            row_str = "".join(row)
+            row_str = row_str.ljust(max_width)
+            print(row_str)
         # pass
 
 
