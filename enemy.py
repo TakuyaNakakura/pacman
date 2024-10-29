@@ -18,6 +18,7 @@ class Enemy(Item):
     """
     def __init__(self, x, y):
         super().__init__(x, y)
+        self.icon = "E"
 
     def get_next_pos(self, x, y) -> tuple[int, int]:
         """
@@ -28,7 +29,7 @@ class Enemy(Item):
             移動方向 tuple[int, int]
 
         """
-        position = {(0, 0), (1, 0), (0, 1)}
+        position = {(0, 0), (1, 0), (0, 1), (0, -1), (-1, 0)}
         dir = random.choice(position)
         self.next_x = self.now_x + dir[0]
         self.next_y = self.now_y + dir[1]
