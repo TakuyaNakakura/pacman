@@ -42,7 +42,7 @@ class Game:
             params (Parameters): configのパラメータのインスタンス
 
         Examples:
-            >>> params = Parameters()
+            >>> params = Parameters(field_size=10)
             >>> game = Game(params)
             >>> game.players
             [Player(1, 1)]

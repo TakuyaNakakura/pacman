@@ -29,7 +29,6 @@ class Parameters:
 
     param1: int = 0  # パラメータを定義する例
     param2: dict = field(default_factory=lambda: {'k1': 'v1', 'k2': 'v2'})
-    field_size: int = 10
     # リストや辞書で与える例
 
 
