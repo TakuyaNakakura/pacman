@@ -7,6 +7,11 @@
 import time
 from field import Field
 from player import Player
+from user_input import UserInput
+from config import Parameters
+# from random import randint
+# import logging
+import os
 
 
 class Game:
@@ -17,3 +22,80 @@ class Game:
         players (list[Player]): プレイヤーのリスト
         field (Field): フィールドのインスタンス
     """
+
+    def __init__(self, params: Parameters) -> None:
+        """ゲームクラスの初期化
+
+        Args:
+            params (Parameters): configのパラメータのインスタンス
+        """
+        self.players: list[Player] = []
+        self.field = None
+        self.setup(params)  # ゲームの初期設定
+        self.start()  # ゲームのメインループ
+
+    def setup(self, params: Parameters) -> None:
+        """ゲームの初期設定
+        ゲームの初期設定を行うメソッド．
+
+        Args:
+            params (Parameters): configのパラメータのインスタンス
+
+        Examples:
+            >>> params = Parameters()
+            >>> game = Game(params)
+            >>> game.players
+            [Player(1, 1)]
+            >>> game.field.field_size
+            10
+        """
+        field_size = params.field_size  # フィールドのサイズ
+        # フィールドの初期化
+        self.players = [Player(1, 1)]
+        self.field = Field(
+            self.players,
+            field_size)
+
+    def start(self) -> str:
+        """ゲームのメインループ
+        ゲームのメインループを実行するメソッド．
+        キー入力を受け取り，プレイヤーと敵の移動を行い，フィールドを更新する．
+        ゲーム終了条件を満たした場合は終了する．
+
+        Returns:
+            str: ゲーム終了時のメッセージ (例: "Game Over!", "Game Clear!")
+
+        Examples:
+            >>> params = Parameters(field_size=10)
+            >>> game = Game(params)
+            >>> game.start()
+            'Game Over!'
+        """
+        # ゲームのメインループ
+        while True:
+            #  フィールドを表示
+            os.system("cls" if os.name == "nt" else "clear")  # ターミナルをクリア
+            self.field.display_field()
+
+            # プレイヤーの移動を決定
+            for player in self.players:
+                # キー入力を受け取る
+                key = UserInput.get_user_input()
+                player.get_next_pos(key)
+
+            # プレイヤーと敵の移動
+            for item in self.players:
+                item.update_pos()
+
+            # fieldを更新
+            self.field.update_field()
+
+            # 一定の間隔で処理を繰り返す
+            # 0.3秒待つ
+            time.sleep(0.3)
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
