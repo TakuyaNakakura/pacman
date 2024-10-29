@@ -23,3 +23,4 @@ class UserInput:
             return (1, 0)
         else:
             return (0, 0)
+
