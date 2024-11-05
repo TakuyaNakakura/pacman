@@ -7,8 +7,13 @@ class UserInput:
     @staticmethod
     def get_user_input() -> tuple[int, int]:
         """ユーザの入力を受けとり、x, y座標の差分を返す
+
         Returns:
             tuple[int, int]: x, y座標の差分 (例: (1, 0)、(-1, 0)、(0, 1)、(0, -1))など)
+
+        Example:
+            >>> UserInput.get_user_input()
+            (0, 0)
         """
         # キー入力を受け取る
         key = InputWithoutEnter.input_without_enter()
@@ -23,4 +28,8 @@ class UserInput:
             return (1, 0)
         else:
             return (0, 0)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
