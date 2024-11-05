@@ -1,3 +1,5 @@
+
+from game import Game
 import os
 import argparse
 from config import common_args, Parameters
@@ -34,6 +36,9 @@ def main() -> None:
 
     # do something...
     logger.info("Process terminated successfully. ")
+
+    # ゲームの実行
+    Game(params)
 
 
 if __name__ == "__main__":

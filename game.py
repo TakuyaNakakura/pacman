@@ -42,7 +42,7 @@ class Game:
             params (Parameters): configのパラメータのインスタンス
 
         Examples:
-            >>> params = Parameters(field_size=10)
+            >>> params = Parameters()
             >>> game = Game(params)
             >>> game.players
             [Player(1, 1)]
@@ -66,7 +66,7 @@ class Game:
             str: ゲーム終了時のメッセージ (例: "Game Over!", "Game Clear!")
 
         Examples:
-            >>> params = Parameters(field_size=10)
+            >>> params = Parameters()
             >>> game = Game(params)
             >>> game.start()
             'Game Over!'
