@@ -9,10 +9,6 @@ class InputWithoutEnter:
         '''エンターキーを押さずに入力を受け取る
         Returns:
             str: 入力された文字
-        Example:
-            >>> ch = InputWithoutEnter.input_without_enter()
-            >>> 'w'
-            'w'
         '''
  
         # 標準入力のファイルディスクリプタを取得
