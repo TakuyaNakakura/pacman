@@ -1,4 +1,5 @@
 from input_without_enter import InputWithoutEnter
+from unittest.mock import patch
 
 
 class UserInput:
@@ -13,8 +14,8 @@ class UserInput:
 
         Example:
             >>> UserInput.get_user_input()
-            (0, 0)
-        """
+            (0, -1)
+        """ 
         # キー入力を受け取る
         key = InputWithoutEnter.input_without_enter()
         # 入力されたキーに対応する座標の差分を返す
@@ -29,7 +30,9 @@ class UserInput:
         else:
             return (0, 0)
 
+
 if __name__ == "__main__":
     import doctest
-    doctest.testmod()
+    with patch('input_without_enter.InputWithoutEnter.input_without_enter', return_value = 'w'):
+        doctest.testmod()
 
