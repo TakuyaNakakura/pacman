@@ -9,6 +9,10 @@ class InputWithoutEnter:
         '''エンターキーを押さずに入力を受け取る
         Returns:
             str: 入力された文字
+        Example:
+            >>> ch = InputWithoutEnter.input_without_enter()
+            >>> 'w'
+            'w'
         '''
  
         # 標準入力のファイルディスクリプタを取得
@@ -40,3 +44,7 @@ class InputWithoutEnter:
             termios.tcsetattr(fd, termios.TCSANOW, old)
 
         return ch
+    
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
