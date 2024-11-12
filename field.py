@@ -29,8 +29,7 @@ class Field:
 
         Args:
             players (list[Player]): プレイヤーのリスト
-            f_size (int): フィールドのサイズ
-
+            field_size (int): フィールドのサイズ
         """
         self.players = players
         self.field_size = field_size
@@ -40,7 +39,6 @@ class Field:
         ]
         self.update_field()
 
-    # Fieldを更新する関数
     def update_field(self) -> list[list[str]]:
         """Fieldを更新する関数
         プレイヤーの位置を参照してFieldを更新する関数
@@ -53,7 +51,13 @@ class Field:
             >>> field = Field([p])
             >>> field.update_field()[0]
             ['🐯', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+            >>> field.shift_left()
+            >>> field.update_field()[0]
+            [' ', '🐯', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
         """
+
+        # フィールドを左にシフト
+        self.shift_left()
 
         # fieldを一旦すべて空白にする
         for i in range(len(self.field)):
@@ -63,9 +67,15 @@ class Field:
         for player in self.players:
             self.field[player.now_y][player.now_x] = player.icon
         return self.field
-        # pass
 
-    # Fieldを表示する関数
+    def shift_left(self) -> None:
+        """フィールドを左にシフトする関数
+        フィールドのすべての要素を左にずらす関数
+        """
+        for row in self.field:
+            row.pop(0)
+            row.append(" ")
+
     def display_field(self) -> None:
         """Fieldを表示する関数
         Fieldを表示する関数
@@ -85,18 +95,14 @@ class Field:
             <BLANKLINE>
             <BLANKLINE>
         """
-
-        # フィールド内の最大幅を取得
         max_width = max(len(row) for row in self.field)
 
         for row in self.field:
             row_str = "".join(row)
             row_str = row_str.ljust(max_width)
             print(row_str)
-        # pass
 
 
 if __name__ == "__main__":
     import doctest
-
     doctest.testmod()
