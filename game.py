@@ -40,11 +40,6 @@ class Game:
         Args:
             params (Parameters): configのパラメータのインスタンス
 
-        Examples:
-            >>> params = Parameters()
-            >>> game = Game(params)
-            >>> game.field.field_size
-            10
         """
         field_size = params.field_size  # フィールドのサイズ
         # フィールドの初期化
@@ -62,10 +57,6 @@ class Game:
         Returns:
             str: ゲーム終了時のメッセージ (例: "Game Over!", "Game Clear!")
 
-        Examples:
-            >>> params = Parameters()
-            >>> game = Game(params)
-            >>> game.start()
         """
         # ゲームのメインループ
         while True:
