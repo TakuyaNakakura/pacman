@@ -11,10 +11,6 @@ class UserInput:
 
         Returns:
             tuple[int, int]: x, y座標の差分 (例: (1, 0)、(-1, 0)、(0, 1)、(0, -1))など)
-
-        Example:
-            >>> UserInput.get_user_input()
-            (0, -1)
         """
         # キー入力を受け取る
         key = InputWithoutEnter.input_without_enter()
