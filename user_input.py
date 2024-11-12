@@ -1,5 +1,5 @@
 from input_without_enter import InputWithoutEnter
-#from unittest.mock import patch
+# from unittest.mock import patch
 
 
 class UserInput:
