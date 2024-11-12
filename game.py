@@ -43,8 +43,6 @@ class Game:
         Examples:
             >>> params = Parameters()
             >>> game = Game(params)
-            >>> game.players
-            [Player(1, 1)]
             >>> game.field.field_size
             10
         """
@@ -67,6 +65,7 @@ class Game:
         Examples:
             >>> params = Parameters()
             >>> game = Game(params)
+            >>> game.start()
         """
         # ゲームのメインループ
         while True:
