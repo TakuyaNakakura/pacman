@@ -80,7 +80,7 @@ class Game:
             # 一定の間隔で処理を繰り返す
             # 0.3秒待つ
             time.sleep(0.3)
-            exit()
+            # exit()
 
 
 if __name__ == "__main__":
