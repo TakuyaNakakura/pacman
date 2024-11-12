@@ -29,10 +29,3 @@ class UserInput:
             return (1, 0)
         else:
             return (0, 0)
-
-
-if __name__ == "__main__":
-    import doctest
-    with patch('input_without_enter.InputWithoutEnter.input_without_enter',
-               return_value='w'):
-        doctest.testmod()
