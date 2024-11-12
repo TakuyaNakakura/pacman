@@ -75,3 +75,12 @@ python main.py -h
 │   └── 20211026_165841
 └── utils.py            # 共有関数群
 ```
+
+## How to Operate
+- キーボードによる操作方法は以下の通り
+```shell
+・ "w" --- up
+・ "a" --- left
+・ "s" --- down
+・ "d" --- right
+```
