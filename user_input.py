@@ -15,7 +15,7 @@ class UserInput:
         Example:
             >>> UserInput.get_user_input()
             (0, -1)
-        """ 
+        """
         # キー入力を受け取る
         key = InputWithoutEnter.input_without_enter()
         # 入力されたキーに対応する座標の差分を返す
@@ -33,6 +33,6 @@ class UserInput:
 
 if __name__ == "__main__":
     import doctest
-    with patch('input_without_enter.InputWithoutEnter.input_without_enter', return_value = 'w'):
+    with patch('input_without_enter.InputWithoutEnter.input_without_enter',
+               return_value='w'):
         doctest.testmod()
-
