@@ -12,11 +12,11 @@ class Block(Item):
         y (int): y座標
         icon (str): 表示アイコン
     """
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, x, y) -> None:
+        super().__init__(x, y)
         self.icon = "■"
-        self.now_y = int(random.random()) % 10
-        self.now_x = 10
+        self.now_y = int(random.random()) % y
+        self.now_x = x
 
     def update_pos(self, stuck: bool = False) -> tuple[int, int]:
         """
