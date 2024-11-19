@@ -18,7 +18,7 @@ class Block(Item):
         self.now_y = int(random.random()) % 10
         self.now_x = 10
 
-    def update_pos(self, stuck:bool = False) -> tuple[int, int]:
+    def update_pos(self, stuck: bool = False) -> tuple[int, int]:
         """
         x軸を一つずらす関数
 
@@ -30,4 +30,3 @@ class Block(Item):
         self.next_x = self.now_x - 1
         self.next_y = self.now_y
         return (self.next_x, self.next_y)
-    
