@@ -45,8 +45,10 @@ class Game:
 
         """
         field_size = params.field_size  # フィールドのサイズ
+        num_blocks = params.num_blocks  # ブロックの数
         # フィールドの初期化
         self.players = [Player(1, 1)]
+        self.blocks = [Block(field_size, field_size) for _ in range(num_blocks)]
         self.field = Field(
             self.players,
             field_size)
