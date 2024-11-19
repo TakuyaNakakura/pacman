@@ -4,8 +4,9 @@
 
 """
 
-# from item import Item
+from item import Item
 from player import Player
+from typing import Optional
 
 
 class Field:
@@ -61,6 +62,23 @@ class Field:
         for player in self.players:
             self.field[player.now_y][player.now_x] = player.icon
         return self.field
+
+    def check_bump(self, target: Item, items: list[Item]) -> Optional[Item]:
+        """
+        2つのアイテムの位置が重なっているか判定する関数
+
+        Args:
+            target (Item): アイテム1
+            items (list[Item]): アイテムのリスト2
+
+        Returns:
+            Item | None: 重なっているアイテムがあればそのアイテム、なければNone
+        """
+        # 衝突判定を行う処理を記述
+        for item in items:
+            if item.next_x == target.next_x and item.next_y == target.next_y:
+                return item
+        return None
 
     def display_field(self) -> None:
         """Fieldを表示する関数

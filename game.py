@@ -6,6 +6,7 @@
 
 import time
 from field import Field
+from block import Block
 from player import Player
 from user_input import UserInput
 from config import Parameters
@@ -21,6 +22,7 @@ class Game:
     Attributes:
         players (list[Player]): プレイヤーのリスト
         field (Field): フィールドのインスタンス
+        blocks (list[Block]): ブロックのリスト
     """
 
     def __init__(self, params: Parameters) -> None:
@@ -30,6 +32,7 @@ class Game:
             params (Parameters): configのパラメータのインスタンス
         """
         self.players: list[Player] = []
+        self.blocks: list[Block] = []
         self.setup(params)  # ゲームの初期設定
         self.start()  # ゲームのメインループ
 
@@ -72,7 +75,11 @@ class Game:
 
             # プレイヤーと敵の移動
             for item in self.players:
-                item.update_pos()
+                bumped_item = self.field.check_bump(item, list(self.blocks))
+                if bumped_item is not None:
+                    item.update_pos(stuck=True)
+                else:
+                    item.update_pos()
 
             # fieldを更新
             self.field.update_field()
