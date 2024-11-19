@@ -6,6 +6,7 @@
 
 from item import Item
 from player import Player
+from block import Block
 from typing import Optional
 
 
@@ -17,6 +18,7 @@ class Field:
     Attributes:
         players (list[Player]): プレイヤーのリスト
         field (list[list[str]]): フィールドの情報
+        blocks (list[Block]): ブロックのリスト
         field_size (int): フィールドのサイズ
     """
 
@@ -24,6 +26,7 @@ class Field:
     def __init__(
         self,
         players: list[Player],
+        blocks: list[Block],
         field_size: int = 10,
     ) -> None:
         """Fieldクラスのコンストラクタ
@@ -31,9 +34,11 @@ class Field:
         Args:
             players (list[Player]): プレイヤーのリスト
             field_size (int): フィールドのサイズ
+            blocks (list[Block]): ブロックのリスト
         """
         self.players = players
         self.field_size = field_size
+        self.blocks = blocks
         self.field = [
             [" " for _ in range(field_size)]
             for _ in range(field_size)
@@ -61,6 +66,9 @@ class Field:
 
         for player in self.players:
             self.field[player.now_y][player.now_x] = player.icon
+        for block in self.blocks:
+            if block.status:
+                self.field[block.now_y][block.now_x] = block.icon
         return self.field
 
     def check_bump(self, target: Item, items: list[Item]) -> Optional[Item]:
