@@ -80,6 +80,7 @@ class Game:
 
             # blockの移動
             for block in self.blocks:
+                block.move()
                 block.update_pos()
 
             # プレイヤーと敵の移動
