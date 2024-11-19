@@ -49,7 +49,7 @@ class Game:
         # フィールドの初期化
         self.players = [Player(1, 1)]
         self.blocks = [
-            Block(field_size-1, field_size-1) for _ in range(num_blocks)
+            Block(field_size, field_size) for _ in range(num_blocks)
         ]
         self.field = Field(
             self.players,
@@ -77,6 +77,10 @@ class Game:
                 # キー入力を受け取る
                 key = UserInput.get_user_input()
                 player.get_next_pos(key)
+
+            # blockの移動
+            for block in self.blocks:
+                block.update_pos()
 
             # プレイヤーと敵の移動
             for item in self.players:
