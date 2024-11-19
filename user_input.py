@@ -17,11 +17,12 @@ class UserInput:
         # 入力されたキーに対応する座標の差分を返す
         if key == "w":
             return (0, -1)
-        elif key == "a":
-            return (-1, 0)
+        
         elif key == "s":
             return (0, 1)
-        elif key == "d":
-            return (1, 0)
+        # elif key == "a":
+        #    return (-1, 0)
+        # elif key == "d":
+        #    return (1, 0)
         else:
             return (0, 0)
