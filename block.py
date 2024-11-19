@@ -26,7 +26,7 @@ class Block(Item):
             tuple[int, int]
         """
         if self.now_x - 1 <= 0:
-            del self
+            self.status = False
         self.next_x = self.now_x - 1
         self.next_y = self.now_y
         return (self.next_x, self.next_y)
