@@ -6,6 +6,7 @@
 
 import time
 from field import Field
+from block import Block
 from player import Player
 from user_input import UserInput
 from config import Parameters
@@ -21,6 +22,7 @@ class Game:
     Attributes:
         players (list[Player]): プレイヤーのリスト
         field (Field): フィールドのインスタンス
+        blocks (list[Block]): ブロックのリスト
     """
 
     def __init__(self, params: Parameters) -> None:
@@ -30,6 +32,7 @@ class Game:
             params (Parameters): configのパラメータのインスタンス
         """
         self.players: list[Player] = []
+        self.blocks: list[Block] = []
         self.setup(params)  # ゲームの初期設定
         self.start()  # ゲームのメインループ
 
@@ -40,19 +43,17 @@ class Game:
         Args:
             params (Parameters): configのパラメータのインスタンス
 
-        Examples:
-            >>> params = Parameters()
-            >>> game = Game(params)
-            >>> game.players
-            [Player(1, 1)]
-            >>> game.field.field_size
-            10
         """
         field_size = params.field_size  # フィールドのサイズ
+        num_blocks = params.num_blocks  # ブロックの数
         # フィールドの初期化
         self.players = [Player(1, 1)]
+        self.blocks = [
+            Block(field_size, field_size) for _ in range(num_blocks)
+        ]
         self.field = Field(
             self.players,
+            self.blocks,
             field_size)
 
     def start(self) -> str:
@@ -64,9 +65,6 @@ class Game:
         Returns:
             str: ゲーム終了時のメッセージ (例: "Game Over!", "Game Clear!")
 
-        Examples:
-            >>> params = Parameters()
-            >>> game = Game(params)
         """
         # ゲームのメインループ
         while True:
@@ -80,9 +78,17 @@ class Game:
                 key = UserInput.get_user_input()
                 player.get_next_pos(key)
 
+            # blockの移動
+            for block in self.blocks:
+                block.update_pos()
+
             # プレイヤーと敵の移動
             for item in self.players:
-                item.update_pos()
+                bumped_item = self.field.check_bump(item, list(self.blocks))
+                if bumped_item is not None:
+                    item.update_pos(stuck=True)
+                else:
+                    item.update_pos()
 
             # fieldを更新
             self.field.update_field()
@@ -90,7 +96,7 @@ class Game:
             # 一定の間隔で処理を繰り返す
             # 0.3秒待つ
             time.sleep(0.3)
-            exit()
+            # exit()
 
 
 if __name__ == "__main__":
