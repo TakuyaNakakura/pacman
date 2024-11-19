@@ -51,13 +51,7 @@ class Field:
             >>> field = Field([p])
             >>> field.update_field()[0]
             ['🐯', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            >>> field.shift_left()
-            >>> field.update_field()[0]
-            [' ', '🐯', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
         """
-
-        # フィールドを左にシフト
-        self.shift_left()
 
         # fieldを一旦すべて空白にする
         for i in range(len(self.field)):
@@ -67,14 +61,6 @@ class Field:
         for player in self.players:
             self.field[player.now_y][player.now_x] = player.icon
         return self.field
-
-    def shift_left(self) -> None:
-        """フィールドを左にシフトする関数
-        フィールドのすべての要素を左にずらす関数
-        """
-        for row in self.field:
-            row.pop(0)
-            row.append(" ")
 
     def display_field(self) -> None:
         """Fieldを表示する関数
