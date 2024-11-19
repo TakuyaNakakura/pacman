@@ -12,8 +12,8 @@ class Block(Item):
         y (int): y座標
         icon (str): 表示アイコン
     """
-    def __init__(self, x, y) -> None:
-        super().__init__(x, y)
+    def __init__(self) -> None:
+        super().__init__()
         self.icon = "■"
         self.now_y = int(random.random()) % 10
         self.now_x = 10
@@ -25,7 +25,7 @@ class Block(Item):
         Return:
             tuple[int, int]
         """
-        if stuck:
+        if self.now_x - 1 <= 0:
             del self
         self.next_x = self.now_x - 1
         self.next_y = self.now_y
