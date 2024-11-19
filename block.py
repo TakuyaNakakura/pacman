@@ -15,8 +15,8 @@ class Block(Item):
     def __init__(self, x, y) -> None:
         super().__init__(x, y)
         self.icon = "■"
-        self.now_y = int(random.random()) % y
-        self.now_x = x
+        self.now_y = int(random.random()) % (y-1)
+        self.now_x = (x-1)
 
     def update_pos(self, stuck: bool = False) -> tuple[int, int]:
         """
