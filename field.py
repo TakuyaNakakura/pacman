@@ -88,6 +88,7 @@ class Field:
                 return item
         return None
 
+    # 壁を作成していないのでflake8の警告が出る
     def display_field(self) -> None:
         """Fieldを表示する関数
         Fieldを表示する関数
