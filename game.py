@@ -10,7 +10,7 @@ from block import Block
 from player import Player
 from user_input import UserInput
 from config import Parameters
-# from random import randint
+from random import randint
 # import logging
 import os
 
@@ -33,6 +33,7 @@ class Game:
         """
         self.players: list[Player] = []
         self.blocks: list[Block] = []
+        self.num_blocks = params.num_blocks
         self.setup(params)  # ゲームの初期設定
         self.start()  # ゲームのメインループ
 
@@ -48,9 +49,11 @@ class Game:
         num_blocks = params.num_blocks  # ブロックの数
         # フィールドの初期化
         self.players = [Player(1, 1)]
-        self.blocks = [
-            Block(field_size, field_size) for _ in range(num_blocks)
-        ]
+        self.blocks = []
+        for i in range(num_blocks):
+            self.blocks.append(
+                Block(randint(1, field_size - 1), randint(1, field_size - 1))
+                )
         self.field = Field(
             self.players,
             self.blocks,
@@ -77,6 +80,15 @@ class Game:
                 # キー入力を受け取る
                 key = UserInput.get_user_input()
                 player.get_next_pos(key)
+
+            # # blockの生成
+            for _ in range(self.num_blocks):
+                self.blocks.append(
+                    Block(
+                        randint(1, self.field.field_size - 1),
+                        randint(1, self.field.field_size - 1)
+                    )
+                )
 
             # blockの移動
             for block in self.blocks:

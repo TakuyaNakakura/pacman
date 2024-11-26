@@ -1,5 +1,4 @@
 from item import Item
-import random
 
 
 class Block(Item):
@@ -15,8 +14,8 @@ class Block(Item):
     def __init__(self, x, y) -> None:
         super().__init__(x, y)
         self.icon = "■"
-        self.now_y = int(random.random()) % (y-1)
-        self.now_x = (x-1)
+        self.now_y = y
+        self.now_x = x
 
     def move(self, stuck: bool = False) -> tuple[int, int]:
         """
