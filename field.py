@@ -40,8 +40,8 @@ class Field:
         self.field_size = field_size
         self.blocks = blocks
         self.field = [
-            [" " for _ in range(field_size)]
-            for _ in range(field_size)
+            [" " for _ in range(field_size + 2)]
+            for _ in range(field_size + 2)
         ]
         self.update_field()
 
@@ -54,15 +54,24 @@ class Field:
 
         Examples:
             >>> p = Player(0, 0)
-            >>> field = Field([p])
+            >>> b = Block(1, 1)
+            >>> field = Field([p], [b])
             >>> field.update_field()[0]
-            ['🐯', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+            ['🐯', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
+            >>> field.update_field()[1]
+            ['#', '■', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#']
         """
 
         # fieldを一旦すべて空白にする
         for i in range(len(self.field)):
             for j in range(len(self.field[i])):
-                self.field[i][j] = " "
+                if (
+                    i == 0 or i == len(self.field) - 1 or
+                    j == 0 or j == len(self.field[i]) - 1
+                ):
+                    self.field[i][j] = "#"
+                else:
+                    self.field[i][j] = " "
 
         for player in self.players:
             self.field[player.now_y][player.now_x] = player.icon
@@ -95,18 +104,21 @@ class Field:
 
         Examples:
             >>> p = Player(0, 0)
-            >>> field = Field([p])
+            >>> b = Block(1, 1)
+            >>> field = Field([p], [b])
             >>> field.display_field()
-            🐯         
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
-            <BLANKLINE>
+            🐯###########
+            #■         #
+            #          #
+            #          #
+            #          #
+            #          #
+            #          #
+            #          #
+            #          #
+            #          #
+            #          #
+            ############
         """
         max_width = max(len(row) for row in self.field)
 
