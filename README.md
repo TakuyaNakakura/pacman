@@ -108,9 +108,7 @@ utils.py # 共有関数群
 
 ```shell
 ・ "w" --- up
-・ "a" --- left
 ・ "s" --- down
-・ "d" --- right
 ```
 
 ## Classes and Functions
