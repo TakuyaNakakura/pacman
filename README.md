@@ -176,7 +176,7 @@ utils.py # 共有関数群
 
 ### `utils.py`
 
-- 便利な関数群。
+- その他関数。
   - `get_git_revision` 関数: 現在のGitリビジョンを取得
   - `setup_params` 関数: パラメータを設定
   - `dump_params` 関数: パラメータをjson出力
