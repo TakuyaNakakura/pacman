@@ -11,8 +11,10 @@ from player import Player
 from user_input import UserInput
 from config import Parameters
 from random import randint
-# import logging
+import logging
 import os
+
+logger = logging.getLogger(__name__)
 
 
 class Game:
@@ -95,13 +97,26 @@ class Game:
                 block.move()
                 block.update_pos()
 
+            # # プレイヤーと敵の移動
+            # for item in self.players:
+            #     bumped_item = self.field.check_bump(item, list(self.blocks))
+            #     if bumped_item is not None:
+            #         item.update_pos(stuck=True)
+            #     else:
+            #         item.update_pos()
             # プレイヤーと敵の移動
             for item in self.players:
-                bumped_item = self.field.check_bump(item, list(self.blocks))
-                if bumped_item is not None:
-                    item.update_pos(stuck=True)
-                else:
-                    item.update_pos()
+                item.update_pos()
+
+            for player in self.players:
+                # ブロックとの衝突判定
+                if self.field.check_bump(player, list(self.blocks)):
+                    self.field.update_field()
+                    os.system("cls" if os.name == "nt" else "clear")
+                    # ターミナルをクリア
+                    self.field.display_field()
+                    logger.info("Game Over!")
+                    return "Game Over!"
 
             # fieldを更新
             self.field.update_field()
