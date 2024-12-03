@@ -31,7 +31,7 @@ class Parameters:
     param2: dict = field(default_factory=lambda: {'k1': 'v1', 'k2': 'v2'})
 
     field_size: int = 12  # フィールドサイズ フィールドの1辺の長さ
-    num_blocks: int = 4
+    num_blocks: int = 4  # ブロックの数
 
     # リストや辞書で与える例
 
