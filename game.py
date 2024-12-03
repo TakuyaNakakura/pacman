@@ -97,14 +97,7 @@ class Game:
                 block.move()
                 block.update_pos()
 
-            # # プレイヤーと敵の移動
-            # for item in self.players:
-            #     bumped_item = self.field.check_bump(item, list(self.blocks))
-            #     if bumped_item is not None:
-            #         item.update_pos(stuck=True)
-            #     else:
-            #         item.update_pos()
-            # プレイヤーと敵の移動
+            # プレイヤーの移動
             for item in self.players:
                 item.update_pos()
 
